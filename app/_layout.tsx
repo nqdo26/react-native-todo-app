@@ -24,7 +24,6 @@ export default function RootLayout() {
 
   return (
     <View className="flex-1 bg-slate-50">
-      {/* Layout chỉ lo structure, không lo font */}
       <View className="flex-1 pt-12 px-4">
         <HomeScreen />
         <DetailScreen />
