@@ -1,12 +1,10 @@
+import { useEffect } from "react";
+import { Stack } from "expo-router";
 import { useFonts } from "expo-font";
 import * as SplashScreen from "expo-splash-screen";
-import { useEffect } from "react";
-import { View } from "react-native";
-import HomeScreen from "../screens/home";
-import AboutScreen from "../screens/about";
-import DetailScreen from "../screens/detail";
 import { FONTS } from "../constants/fonts";
 
+// Prevent splash screen from auto-hiding
 SplashScreen.preventAutoHideAsync();
 
 export default function RootLayout() {
@@ -18,17 +16,16 @@ export default function RootLayout() {
     }
   }, [loaded, error]);
 
+  // Don't render app until fonts are loaded
   if (!loaded && !error) {
     return null;
   }
 
   return (
-    <View className="flex-1 bg-slate-50">
-      <View className="flex-1 pt-12 px-4">
-        <HomeScreen />
-        <DetailScreen />
-        <AboutScreen />
-      </View>
-    </View>
+    <Stack>
+      <Stack.Screen name="index" options={{ title: "Home" }} />
+      <Stack.Screen name="detail" options={{ title: "Detail" }} />
+      <Stack.Screen name="about" options={{ title: "About" }} />
+    </Stack>
   );
 }
