@@ -1,11 +1,26 @@
-import { View } from "react-native";
+import { StyleSheet, View } from "react-native";
 import AppText from "../components/AppText";
 
 export default function AboutScreen() {
   return (
-    <View className="p-4 bg-gray-50">
-      <AppText className="text-xl font-bold mb-2">About Screen</AppText>
-      <AppText className="text-gray-600">Welcome to My Todo App</AppText>
+    <View style={styles.container}>
+      <AppText style={styles.title}>About Screen</AppText>
+      <AppText style={styles.description}>Welcome to My Todo App</AppText>
     </View>
   );
 }
+
+const styles = StyleSheet.create({
+  container: {
+    padding: 16,
+    backgroundColor: "#f9fafb",
+  },
+  title: {
+    fontSize: 20,
+    fontWeight: "bold",
+    marginBottom: 8,
+  },
+  description: {
+    color: "#4b5563",
+  },
+});
