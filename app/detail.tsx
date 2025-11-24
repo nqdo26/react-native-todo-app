@@ -7,7 +7,6 @@ export default function DetailScreen() {
 
   return (
     <View style={styles.container}>
-      <AppText style={styles.label}>ID: {id}</AppText>
       <AppText style={styles.title}>{title}</AppText>
       <AppText style={styles.description}>{des}</AppText>
     </View>

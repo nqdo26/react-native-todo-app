@@ -6,9 +6,9 @@ import {
   TouchableOpacity,
   View,
 } from "react-native";
-import AppText from "../components/AppText";
-import { Link, Stack } from "expo-router";
-import { ITodo } from "../interfaces";
+import AppText from "../../components/AppText";
+import { Link } from "expo-router";
+import { ITodo } from "../../interfaces";
 
 export default function HomeScreen() {
   const [todos, setTodos] = useState<ITodo[]>([
@@ -19,7 +19,6 @@ export default function HomeScreen() {
 
   return (
     <>
-      <Stack.Screen options={{ headerShown: false }} />
       <View style={styles.header}>
         <AppText style={styles.headerTitle}>Too Doo</AppText>
       </View>

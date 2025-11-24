@@ -21,9 +21,8 @@ export default function RootLayout() {
 
   return (
     <Stack>
-      <Stack.Screen name="index" />
+      <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
       <Stack.Screen name="detail" options={{ title: "Detail" }} />
-      <Stack.Screen name="about" options={{ title: "About" }} />
     </Stack>
   );
 }
