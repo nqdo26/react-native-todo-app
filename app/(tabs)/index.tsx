@@ -6,9 +6,9 @@ import {
   TouchableOpacity,
   View,
 } from "react-native";
-import AppText from "../../components/AppText";
+import AppText from "~/components/AppText";
 import { Link } from "expo-router";
-import { ITodo } from "../../interfaces";
+import { ITodo } from "../../../interfaces";
 
 export default function HomeScreen() {
   const [todos, setTodos] = useState<ITodo[]>([

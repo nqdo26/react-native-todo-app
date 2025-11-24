@@ -13,7 +13,16 @@
     "allowJs": true,
     "forceConsistentCasingInFileNames": true,
     "noEmit": true,
-    "isolatedModules": true
+    "isolatedModules": true,
+    "baseUrl": ".",
+    "paths": {
+      "~/*": ["./*"],
+      "@components/*": ["./components/*"],
+      "@screens/*": ["./app/*"],
+      "@constants/*": ["./constants/*"],
+      "@interfaces/*": ["./interfaces/*"],
+      "@types/*": ["./types/*"]
+    }
   },
   "include": ["**/*.ts", "**/*.tsx", "nativewind-env.d.ts"],
   "exclude": ["node_modules"],

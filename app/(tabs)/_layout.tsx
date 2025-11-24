@@ -1,47 +1,74 @@
+import { StyleSheet } from "react-native";
 import { Tabs } from "expo-router";
 import { Ionicons } from "@expo/vector-icons";
+import AppText from "~/components/AppText";
 
 export default function TabLayout() {
   return (
     <Tabs
       screenOptions={{
-        tabBarActiveTintColor: "#3b82f6",
-        tabBarInactiveTintColor: "#94a3b8",
-        tabBarStyle: {
-          backgroundColor: "#ffffff",
-          borderTopWidth: 1,
-          borderTopColor: "#e2e8f0",
-          height: 60,
-          paddingBottom: 8,
-          paddingTop: 8,
-        },
-        tabBarLabelStyle: {
-          fontSize: 12,
-          fontWeight: "600",
-        },
+        tabBarActiveTintColor: TAB_BAR_COLORS.active,
+        tabBarInactiveTintColor: TAB_BAR_COLORS.inactive,
+        tabBarStyle: styles.tabBar,
+        tabBarLabelStyle: styles.tabBarLabel,
       }}
     >
       <Tabs.Screen
         name="index"
         options={{
-          title: "Home",
+          title: "Tasks",
           headerShown: false,
           tabBarIcon: ({ color, size }) => (
-            <Ionicons name="home" size={size} color={color} />
+            <Ionicons name="list" size={size} color={color} />
           ),
         }}
       />
       <Tabs.Screen
-        name="about"
+        name="calendar"
         options={{
-          title: "About",
+          title: "Calendar",
           headerShown: true,
-          headerTitle: "About",
+          headerTitle: () => <AppText style={styles.headerTitle}>Lịch</AppText>,
           tabBarIcon: ({ color, size }) => (
-            <Ionicons name="information-circle" size={size} color={color} />
+            <Ionicons name="calendar" size={size} color={color} />
+          ),
+        }}
+      />
+      <Tabs.Screen
+        name="my"
+        options={{
+          title: "My",
+          headerShown: true,
+          headerTitle: () => <AppText style={styles.headerTitle}>My</AppText>,
+          tabBarIcon: ({ color, size }) => (
+            <Ionicons name="person" size={size} color={color} />
           ),
         }}
       />
     </Tabs>
   );
 }
+
+const TAB_BAR_COLORS = {
+  active: "#3b82f6",
+  inactive: "#94a3b8",
+};
+
+const styles = StyleSheet.create({
+  tabBar: {
+    backgroundColor: "#ffffff",
+    borderTopWidth: 1,
+    borderTopColor: "#e2e8f0",
+    height: 85,
+    paddingBottom: 25,
+    paddingTop: 8,
+  },
+  tabBarLabel: {
+    fontSize: 12,
+    fontWeight: "600",
+  },
+  headerTitle: {
+    fontSize: 17,
+    fontWeight: "600",
+  },
+});
