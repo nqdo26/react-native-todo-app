@@ -8,7 +8,8 @@ import {
 } from "react-native";
 import AppText from "~/components/AppText";
 import { Link } from "expo-router";
-import { ITodo } from "../../../interfaces";
+import { ITodo } from "~/interfaces";
+import { Ionicons } from "@expo/vector-icons";
 
 export default function HomeScreen() {
   const [todos, setTodos] = useState<ITodo[]>([
@@ -20,7 +21,9 @@ export default function HomeScreen() {
   return (
     <>
       <View style={styles.header}>
-        <AppText style={styles.headerTitle}>Too Doo</AppText>
+        <AppText style={styles.headerTitle}>TooDoo</AppText>
+
+        <Ionicons name="add" size={28} color="#ffffff" />
       </View>
       <View style={styles.container}>
         <FlatList
@@ -41,6 +44,13 @@ export default function HomeScreen() {
             </Link>
           )}
         />
+
+        <TouchableOpacity
+          style={styles.fab}
+          onPress={() => console.log("Add new todo")}
+        >
+          <Ionicons name="add" size={28} color="#ffffff" />
+        </TouchableOpacity>
       </View>
     </>
   );
@@ -59,9 +69,11 @@ const styles = StyleSheet.create({
   headerTitle: {
     fontSize: 25,
     fontWeight: "700",
+    color: "#3b82f6",
   },
   container: {
     padding: 16,
+    flex: 1,
   },
   todoItem: {
     backgroundColor: "#fff",
@@ -79,5 +91,21 @@ const styles = StyleSheet.create({
   todoDes: {
     fontSize: 14,
     color: "#64748b",
+  },
+  fab: {
+    position: "absolute",
+    right: 20,
+    bottom: 20,
+    width: 56,
+    height: 56,
+    borderRadius: 28,
+    backgroundColor: "#3b82f6",
+    justifyContent: "center",
+    alignItems: "center",
+    elevation: 5,
+    shadowColor: "#000",
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.25,
+    shadowRadius: 4,
   },
 });

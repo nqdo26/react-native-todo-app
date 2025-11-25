@@ -27,8 +27,7 @@ export default function TabLayout() {
         name="calendar"
         options={{
           title: "Calendar",
-          headerShown: true,
-          headerTitle: () => <AppText style={styles.headerTitle}>Lịch</AppText>,
+          headerShown: false,
           tabBarIcon: ({ color, size }) => (
             <Ionicons name="calendar" size={size} color={color} />
           ),
